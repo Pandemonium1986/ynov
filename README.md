@@ -30,3 +30,5 @@
 | tedesco-docker-vm       | 85.158.8.107 |
 | truong-docker-vm        | 85.158.8.10  |
 | tsampikana-docker-vm    | 85.158.8.200 |
+
+sed -i 's/Welcome to nginx!/Welcome to Ynov!/g' index.html
