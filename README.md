@@ -32,3 +32,12 @@
 | tsampikana-docker-vm    | 85.158.8.200 |
 
 sed -i 's/Welcome to nginx!/Welcome to Ynov!/g' index.html
+
+- Installer docker-compose
+- Déployer 
+   * Nexus
+   * Sonar
+   * Jenkins
+   * Gitea
+- Configurer les outils via des variables d'environnements.
+- lancer un projet démo : Pandemonium/pic-demo
