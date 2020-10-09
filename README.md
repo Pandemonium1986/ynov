@@ -41,3 +41,6 @@ sed -i 's/Welcome to nginx!/Welcome to Ynov!/g' index.html
    * Gitea
 - Configurer les outils via des variables d'environnements.
 - lancer un projet démo : Pandemonium/pic-demo
+
+sed
+i '1s/^/daemon off;\n/' /etc/nginx/nginx.conf
