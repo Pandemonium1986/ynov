@@ -1,0 +1,49 @@
+---
+- name:                  Install Docker
+  hosts:                 docker
+  become:                true
+  become_method:         sudo
+  become_user:           root
+  vars:
+    docker_edition:      'ce'
+    docker_package:      "docker-{{ docker_edition }}"
+    docker_yum_gpg_key:  https://download.docker.com/linux/centos/gpg
+    docker_yum_repo_url: https://download.docker.com/linux/centos/docker-ce.repo
+  tasks:
+    - name:              Ensure old versions of Docker are not installed.
+      package:
+        name:
+          - docker
+          - docker-client
+          - docker-client-latest
+          - docker-common
+          - docker-latest
+          - docker-latest-logrotate
+          - docker-logrotate
+          - docker-engine
+        state:           absent
+    - name:              Add Docker GPG key.
+      rpm_key:
+        key:             "{{ docker_yum_gpg_key }}"
+        state:           present
+    - name:              Add Docker repository.
+      get_url:
+        url:             "{{ docker_yum_repo_url }}"
+        dest:            '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
+        owner:           root
+        group:           root
+        mode:            0644
+    - name:              Install Docker.
+      yum:
+        name:            "{{ docker_package }}"
+        state:           "present"
+    - name:              Ensure Docker is started and enabled at boot.
+      service:
+        name:            docker
+        state:           "started"
+        enabled:         "true"
+    - name:              Ensure docker users are added to the docker group.
+      user:
+        name:            docker
+        groups:          docker
+        append:          true
