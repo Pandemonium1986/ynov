@@ -1,25 +1,51 @@
+# Ynov Docker Lab 2020
+
+Le but de cet examen est de tester vos connaissances sur les concepts que nous avons vu autour de docker et la containérisation.  
+Vous avez 2 heures pour réaliser l’examen.  
+La correction est réalisée via une procédure automatique. Aussi soyez **rigoureux** sur le respect des consignes et le nommage des différents objets que vous manipulerez tout au long de l’examen.
+
+Quelques remarques général
+
+-   L’ensemble de l’examen doit se faire sur la machine <span style="color:orange">docker</span>. La machine <span style="color:red">operator</span> n’est là que pour faire rebond.
+-   L’utilisateur de la machine <span style="color:orange">docker</span> est "docker". Il est sudoer et vous pouvez installer tous les outils nécessaires que vous souhaitez.
+
+Bon courage
+
 ## Vérification des pré-requis
 
-#### Vérification des pré-requis
+1.  Connectez-vous à la machine <span style="color:red">operator</span>
 
-1.  Connectez-vous au Devolab
-2.  Vérifier la disponibilité des machines virtuelles
+```sh
+ssh VOTRE_LOGIN@85.158.8.48 -p 443
+```
 
-## Déploiement et configuration de 'environnement
+2.  Depuis la machine <span style="color:red">operator</span> connectez-vous à votre machine <span style="color:orange">docker</span>
+
+```sh
+ssh docker@VOTRE_LOGIN-docker-vm
+```
+
+3.  Créer un répertoire exo0 qui contient un fichier nommé init.txt dans lequel vous écrivez la date du jour ainsi que votre nom prénom.
+
+```sh
+mkdir -p ~/exo0 && touch ~/exo0/init.txt && echo "2020-10-22 Maffait Michael"
+```
+
+## Installation de Docker
 
 ## Exercice 1
 
 1.  Connectez-vous en ssh sur la machine <span style="color:red">ansible</span> du lab
 2.  Effectuer un ping sur les machines <span style="color:orange">haproxy </span><span style="color:blue">blue </span><span style="color:green">green</span>
 
-## Ansible
+## Récupération d'images
 
 ### Exercice 2
 
 1.  Installer ansible avec pip (--user) sur la machine <span style="color:red">ansible</span>
 2.  Contrôler l'installation en affichant la version d'ansible
 
-## Ssh
+## Instanciation d'une image
 
 ### Exercice 3
 
