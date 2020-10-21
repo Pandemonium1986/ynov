@@ -46,7 +46,7 @@ mkdir -p ~/ressources
 
 ## Installation de Docker
 
-## Exercice 1
+### Exercice 1
 
 1.  Installer Docker pour une CentOs en vous appuyant sur la documentation officiel disponible à l'adresse [Doc Docker](https://docs.docker.com/).
     -   L'utilisateur **docker** à les droits suffisant pour effectuer toutes installations sur la mahcine <span style="color:orange">docker</span>.
