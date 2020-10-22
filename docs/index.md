@@ -209,3 +209,5 @@ curl -H "Host: bg.docker.local" localhost:80
 ```sh
 curl -H "Host: bg.docker.local" localhost:80
 ```
+
+10. Créer un répertoire `exo10` qui contient un fichier nommé `bg.txt` dans lequel vous notez vos observation.
