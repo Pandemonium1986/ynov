@@ -121,7 +121,7 @@ curl http://localhost:VOTRE_PORT
     -   Il suit les règles cités plus haut :up:.
 6.  Récupérer le port associé.
 7.  Faite un test local pour vérifier la bonne exécution de votre container.
-8.  Dans le répertoire `exo6` créer fichier nommé `dockerfile.txt` dans lequel vous écrivez la commande pour instancier le container `ynov-nginx-exo6`.
+8.  Dans le répertoire `exo6` créer fichier nommé `dockerfile.txt` dans lequel vous écrivez la commande que vous avez exécutée pour instancier le container `ynov-nginx-exo6`.
 
 ## Volumes
 
@@ -202,3 +202,4 @@ docker run -d -p 80:80 -p 8080:8080 --network ynov-nginx-bg -l traefik.frontend.
 ```sh
 curl -H "Host: bg.docker.local" localhost:80
 ```
+8. Créer un répertoire `exo10` qui contient un fichier nommé `bg.txt` dans lequel vous écrivez la commande que vous avez exécutée pour pouvoir vous connectez ainsi que la commande ping et plus si nécessaire.
