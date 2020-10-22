@@ -202,4 +202,10 @@ docker run -d -p 80:80 -p 8080:8080 --network ynov-nginx-bg -l traefik.frontend.
 ```sh
 curl -H "Host: bg.docker.local" localhost:80
 ```
-8. Créer un répertoire `exo10` qui contient un fichier nommé `bg.txt` dans lequel vous écrivez la commande que vous avez exécutée pour pouvoir vous connectez ainsi que la commande ping et plus si nécessaire.
+
+8.  Arrété le container qui porte le fichier que vous avez vu avec la commande `curl`.
+9.  Fait un test avec `curl` en passant l'entete HOST
+
+```sh
+curl -H "Host: bg.docker.local" localhost:80
+```
