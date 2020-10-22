@@ -143,6 +143,7 @@ curl http://localhost:VOTRE_PORT
 1.  Créer un volume nommé `ynov-nginx-volumes`.
 2.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
     -   Le container se nomme `ynov-nginx-exo81`.
+    -   Il suit les règles cités plus haut :up:.
     -   Vous allez devoir y monter le volume `ynov-nginx-volumes` dans le repertoire `/usr/share/nginx/html`
 3.  Copier le fichier [index-volume](./ressources/index-volume.html) dans le volume `ynov-nginx-volumes`.
 4.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
@@ -156,19 +157,20 @@ curl http://localhost:VOTRE_PORT
 
 ### Exercice 9
 
-1.  Créer un network bridge nommé
-
--   Nommé le ynov-nginx-network.
-
-2.  Créer deux container
-
--   ynov-net-01
--   ynov-net-02
--   Ils doivent avoir le host qui s'appele comme leur nom.
-
-3.  Pinguer les  container entre eux (si besoin installer ping depuis avec la commande)
-
-4.  
+1.  Créer un network de type bridge nommé `ynov-nginx-network`.
+2.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
+    -   Le container se nomme `ynov-nginx-exo91`.
+    -   Il suit les règles cités plus haut :up:.
+    -   Le hostname du container doit être `ynov-nginx-exo91`.
+    -   Vous allez devoir l'associer au netwok `ynov-nginx-network`.
+3.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
+    -   Le container se nomme `ynov-nginx-exo92`.
+    -   Il suit les règles cités plus haut :up:.
+    -   Le hostname du container doit être `ynov-nginx-exo91`.
+    -   Vous allez devoir l'associer au netwok `ynov-nginx-network`.
+4.  Vérifier que vos deux container affiche bien la même page.
+5.  Exécuter un shell interactif dans le container `ynov-nginx-exo91` afin de pouvoir faire un ping sur le le container `ynov-nginx-exo92`
+6.  Créer un répertoire `exo9` qui contient un fichier nommé `ping.txt` dans lequel vous écrivez la commande que vous avez exécutée pour pouvoir vous connectez ainsi que la commande ping et plus si nécessaire.
 
 ## All In One
 
