@@ -182,12 +182,15 @@ curl http://localhost:VOTRE_PORT
     -   Il suit les règles cités plus haut :up:.
     -   Le hostname du container doit être `ynov-nginx-blue`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
+    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:blue.docker.local"
 3.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
     -   Le container se nomme `ynov-nginx-green`.
     -   Il suit les règles cités plus haut :up:.
     -   Le hostname du container doit être `ynov-nginx-green`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
+    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:green.docker.local"
 4.  Lancer un container traefik qui publie le port 80.
+
 ```sh
 docker run -d -p 80:80 -p 8080:8080 --network ynov-nginx-bg -l traefik.frontend.rule="Host:traefik.docker.local" --name traefik -h traefik -v /var/run/docker.sock:/var/run/docker.sock traefik:v1.7 --api --docker
 ```
