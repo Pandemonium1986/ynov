@@ -166,7 +166,7 @@ curl http://localhost:VOTRE_PORT
 3.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
     -   Le container se nomme `ynov-nginx-exo92`.
     -   Il suit les règles cités plus haut :up:.
-    -   Le hostname du container doit être `ynov-nginx-exo91`.
+    -   Le hostname du container doit être `ynov-nginx-exo92`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-network`.
 4.  Vérifier que vos deux container affiche bien la même page.
 5.  Exécuter un shell interactif dans le container `ynov-nginx-exo91` afin de pouvoir faire un ping (package iputils-ping) sur le le container `ynov-nginx-exo92`
