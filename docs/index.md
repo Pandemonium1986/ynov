@@ -106,7 +106,7 @@ curl http://localhost:VOTRE_PORT
 5.  Modifier le contenu de la page container `ynov-nginx-exo5`
     -   Utiliser le fichier index.html présent à l'adresse suivante [index-image.html](./ressources/index-image.html)
 6.  Faite un test local pour vérifier la bonne exécution de votre container.
-7.  Créer un répertoire `exo5` qui contient un fichier nommé `commit.txt` dans lequel vous écrivez la commande que vous avez exécutée pour créer le container
+7.  Créer un répertoire `exo5` qui contient un fichier nommé `commit.txt` dans lequel vous écrivez la commande que vous avez exécutée pour créer l'image
 
 ### Exercice 6
 
@@ -182,15 +182,23 @@ curl http://localhost:VOTRE_PORT
     -   Il suit les règles cités plus haut :up:.
     -   Le hostname du container doit être `ynov-nginx-blue`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
-    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:blue.docker.local"
+    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:bg.docker.local"
 3.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
     -   Le container se nomme `ynov-nginx-green`.
     -   Il suit les règles cités plus haut :up:.
     -   Le hostname du container doit être `ynov-nginx-green`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
-    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:green.docker.local"
+    -   Au moment du run ajouter le label "-l traefik.frontend.rule="Host:bg.docker.local"
 4.  Lancer un container traefik qui publie le port 80.
 
 ```sh
 docker run -d -p 80:80 -p 8080:8080 --network ynov-nginx-bg -l traefik.frontend.rule="Host:traefik.docker.local" --name traefik -h traefik -v /var/run/docker.sock:/var/run/docker.sock traefik:v1.7 --api --docker
+```
+
+5.  Modifier le fichier index.html de  `ynov-nginx-blue` pour affichier Welcome to blue
+6.  Modifier le fichier index.html de  `ynov-nginx-green` pour affichier Welcome to Green
+7.  Fait un test avec curl en passant l'entete HOST
+
+```sh
+curl -H "Host: bg.docker.local" localhost:80
 ```
