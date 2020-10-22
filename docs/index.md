@@ -169,18 +169,25 @@ curl http://localhost:VOTRE_PORT
     -   Le hostname du container doit être `ynov-nginx-exo91`.
     -   Vous allez devoir l'associer au netwok `ynov-nginx-network`.
 4.  Vérifier que vos deux container affiche bien la même page.
-5.  Exécuter un shell interactif dans le container `ynov-nginx-exo91` afin de pouvoir faire un ping sur le le container `ynov-nginx-exo92`
+5.  Exécuter un shell interactif dans le container `ynov-nginx-exo91` afin de pouvoir faire un ping (package iputils-ping) sur le le container `ynov-nginx-exo92`
 6.  Créer un répertoire `exo9` qui contient un fichier nommé `ping.txt` dans lequel vous écrivez la commande que vous avez exécutée pour pouvoir vous connectez ainsi que la commande ping et plus si nécessaire.
 
 ## All In One
 
 ### Exercice 10
 
-1.  Créer un volume nommé `ynov-nginx-blue`.
-2.  Créer un volume nommé `ynov-nginx-green`.
-3.  Lancer un container traefik qui publie le port 80.
-4.  Lancer un container ynov blue avec comme volume blue.
-5.  Lancer un container ynov green avec comme volume Green.
-6.  Copier le fichier blue dans le volume blue.
-7.  Copier le fichier green dans le volume green.
-8.  Tester depuis l'ip public.
+1.  Créer un network de type bridge nommé `ynov-nginx-bg`.
+2.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
+    -   Le container se nomme `ynov-nginx-blue`.
+    -   Il suit les règles cités plus haut :up:.
+    -   Le hostname du container doit être `ynov-nginx-blue`.
+    -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
+3.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
+    -   Le container se nomme `ynov-nginx-green`.
+    -   Il suit les règles cités plus haut :up:.
+    -   Le hostname du container doit être `ynov-nginx-green`.
+    -   Vous allez devoir l'associer au netwok `ynov-nginx-bg`.
+4.  Lancer un container traefik qui publie le port 80.
+```sh
+docker run -d -p 80:80 -p 8080:8080 --network ynov-nginx-bg -l traefik.frontend.rule="Host:traefik.docker.local" --name traefik -h traefik -v /var/run/docker.sock:/var/run/docker.sock traefik:v1.7 --api --docker
+```
