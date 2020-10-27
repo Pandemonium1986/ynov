@@ -157,7 +157,7 @@ curl http://localhost:VOTRE_PORT
 
 ### Exercice 9
 
-1.  Créer un network de type bridge nommé `ynov-nginx-network`.
+1.  Créer un network de type bridge nommé `ynov-nginx-network` avec comme option `--opt com.docker.network.driver.mtu=1450`.
 2.  Créer un container depuis l'image `ynov-nginx-dockerfile`:
     -   Le container se nomme `ynov-nginx-exo91`.
     -   Il suit les règles cités plus haut :up:.
